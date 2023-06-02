@@ -1,6 +1,9 @@
 const h1 = document.createElement('h1')
 
+const params = new URLSearchParams(window.location.search)
 
-h1.innerHTML = `Hello mister`
+const mister = params.get('name')
+
+h1.innerHTML = `Hello ${mister}`
 
 document.querySelector('body').appendChild(h1)
