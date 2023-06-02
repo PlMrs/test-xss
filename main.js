@@ -4,6 +4,6 @@ const params = new URLSearchParams(window.location.search)
 
 const mister = params.get('name')
 
-h1.innerHTML = `Hello ${mister}`
+h1.innerHTML = `Hello `
 
 document.querySelector('body').appendChild(h1)
