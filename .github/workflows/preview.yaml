@@ -9,9 +9,12 @@ jobs:
 
   snyk-test:
     uses: PlMrs/test-xss/.github/workflows/snyk-security.yml@main
+    secrets:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
   Deploy-Production:
     runs-on: ubuntu-latest
+    needs: [snyk-test]
     steps:
       - uses: actions/checkout@v2
       - name: Install Vercel CLI
