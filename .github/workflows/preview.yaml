@@ -2,7 +2,11 @@ name: Custom vercel deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-on: pull_request
+on: 
+  workflow_run:
+    workflows: ["Snyk Security"]
+    types:
+      - completed
 jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
